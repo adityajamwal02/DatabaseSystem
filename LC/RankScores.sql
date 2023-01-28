@@ -20,3 +20,10 @@ Return the result table ordered by score in descending order.
 SELECT s1.score, (SELECT count(distinct score) FROM scores s2 WHERE s2.score>=s1.score) AS "rank"
 FROM scores s1
 ORDER BY s1.score DESC
+
+
+# Using Window Function
+
+/* Write your T-SQL query statement below */
+select score, dense_rank() over(order by score DESC) as rank
+from Scores;
